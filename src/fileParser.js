@@ -1,6 +1,5 @@
-import fs from "fs";
-import { dataUtils } from "./utils.mjs";
-import { resolve } from "dns";
+const fs = require("fs");
+const { dataUtils } = require("./utils");
 
 const { createDataObject } = dataUtils;
 const lineDelimitter = "--||**||--";
@@ -18,7 +17,7 @@ const transformRows = (rows) => {
   });
 };
 
-export const parseFile = (textFilePath) => {
+const parseFile = (textFilePath) => {
   const rawDataArray = [];
   const fileStream = fs.createReadStream(textFilePath, "utf-8");
 
@@ -58,4 +57,8 @@ export const parseFile = (textFilePath) => {
       }
     });
   });
+};
+
+module.exports = {
+  parseFile,
 };

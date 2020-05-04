@@ -1,4 +1,4 @@
-export const dateTimeUtils = {
+const dateTimeUtils = {
   getMonthName(date) {
     return new Date(date).toLocaleString("en-GB", {
       month: "long",
@@ -10,7 +10,7 @@ export const dateTimeUtils = {
   },
 };
 
-export const dataUtils = {
+const dataUtils = {
   createDataObject(columns) {
     const dataObject = {};
     dataObject["division"] = columns[0];
@@ -25,4 +25,9 @@ export const dataUtils = {
     dataObject["year"] = dateTimeUtils.getYear(dataObject["fromDateTime"]);
     return dataObject;
   },
+};
+
+module.exports = {
+  dateTimeUtils,
+  dataUtils,
 };
